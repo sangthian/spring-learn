@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="com.mx.pojo.Address" />
+
+    <bean id="student" class="com.mx.pojo.Student">
+        <!--第一种，普通value赋值-->
+        <property name="name" value="jesse" />
+        <!--第二种，bean引用注入-->
+        <property name="address" ref="address" />
+        <!--第三种，数组注入-->
+        <property name="books">
+            <array>
+                <value>西游记</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+        <!--第四种，list注入-->
+        <property name="hobbies">
+            <list>
+                <value>篮球</value>
+                <value>足球</value>
+            </list>
+        </property>
+        <!--第五种，map注入-->
+        <property name="card">
+            <map>
+                <entry key="id" value="123456" />
+                <entry key="vip" value="123456" />
+            </map>
+        </property>
+        <!--第六种，配置类注入-->
+        <property name="info">
+            <props>
+                <prop key="year">2020</prop>
+                <prop key="month">04</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
